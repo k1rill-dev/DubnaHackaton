@@ -5,6 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>Корзина</h1>
+    {% for item in cart %}
+        {{ item.price }}
+    {% endfor %}
 </body>
 </html>

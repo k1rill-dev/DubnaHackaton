@@ -1,3 +1,6 @@
+from decimal import Decimal
+
+from dj_shop_cart.cart import CartItem
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
@@ -43,6 +46,14 @@ class Menu(models.Model):
     title = models.CharField(max_length=255, blank=True)
     description = models.CharField(max_length=255, blank=True)
     category = models.ForeignKey("Category", on_delete=models.PROTECT)
+
+    def get_price(self, item: CartItem) -> Decimal:
+        """The only requirements of the dj_shop_cart package apart from the fact that the products you add
+        to the cart must be instances of django based models. You can use a different name for this method
+        but be sure to update the corresponding setting (see Configuration). Even if you change the name the
+        function signature should match this one.
+        """
+
 
 class Category(models.Model):
     title = models.CharField(max_length=255, blank=True)
