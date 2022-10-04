@@ -5,6 +5,16 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>Главная страница</h1>
+    <div class="container">
+    {%for m in menu%}
+    <h3>{{m.title}}</h3>
+    <p>{{m.price}}</p>
+    <form action="{% url 'cart:cart_add' m.id %}"  method="post">
+        {{ cart_product_form }}
+        {% csrf_token %}
+        <input type="submit" value="Add to cart">
+    </form>
+    {%endfor%}
+    </div>
 </body>
 </html>

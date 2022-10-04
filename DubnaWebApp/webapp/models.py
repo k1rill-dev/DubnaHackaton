@@ -5,8 +5,8 @@ from django.dispatch import receiver
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    tg_username = models.CharField(max_length=255, blank=False)
-    tg_id = models.IntegerField(blank=False)
+    tg_username = models.CharField(max_length=255, blank=True, null=True)
+    tg_id = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return f"{self.tg_username}"
@@ -39,10 +39,20 @@ class Restaurant(models.Model):
     address = models.CharField(max_length=255, blank=True)
     menu = models.ForeignKey("Menu", on_delete=models.PROTECT)
 
+    def __str__(self):
+        return f"{self.title}"
+
 class Menu(models.Model):
     title = models.CharField(max_length=255, blank=True)
     description = models.CharField(max_length=255, blank=True)
+    price = models.IntegerField(blank=True, default=0)
     category = models.ForeignKey("Category", on_delete=models.PROTECT)
+
+    def __str__(self):
+        return f"{self.title} - {self.price}"
 
 class Category(models.Model):
     title = models.CharField(max_length=255, blank=True)
+
+    def __str__(self):
+        return f"{self.title}"

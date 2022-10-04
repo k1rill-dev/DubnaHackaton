@@ -1,0 +1,78 @@
+{% extends 'webapp/base.html' %}
+{% load static %}
+
+{% block section %}
+    <section class="section">
+        <div class="container">
+            <div id="item_name_row" class="row">
+                <div id="item_name" class="col-md-12">
+                    <h1>
+                        Вміст кошика
+                    </h1>
+                </div>
+            </div>
+            {% for item in cart %}
+                {% with product=item %}
+                    <!-- product in the basket start -->
+                    <div id="product_in_bascet_row" class="row">
+                        <div id="img_and_name" class="col">
+                            <img src="{{ product.image.url }}" alt="">
+                            <p>{{ product.title }}</p>
+                        </div>
+
+                        <div id="count_price_delete" class="col">
+                            <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                                <div class="count">
+                                    <button id="countB"
+                                            onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                                            class="minus"><p>‹</p></button>
+                                    {{ item.update_quantity_form.quantity }}
+                                    {{ item.update_quantity_form.update }}
+                                    <button id="countB"
+                                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                                            class="plus"><p>›</p></button>
+                                    {% csrf_token %}
+                                </div>
+                            </form>
+
+                            <div class="price_delete">
+                                <p>{{ item.total_price }}</p>
+                                <a href="{% url 'cart:cart_remove' product.id %}">
+                                    <button class="buttoneDelete">&times;</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- product in the basket end -->
+                {% endwith %}
+            {% endfor %}
+        </div>
+        <div id="total_price" class="container">
+            <div class="row">
+
+                <div id="price" class="col-md-12 p">
+                    <h4>
+                        Сума замовлення:
+                    </h4>
+                    <h3>
+                        {{ cart.get_total_price }}$
+                    </h3>
+                </div>
+
+                <div id="b1" class="col col-md">
+                    <a href="{% url "webapp:home" %}">
+                        <button>
+                            Продовжити
+                        </button>
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+
+    </section>
+{% endblock %}
