@@ -45,6 +45,7 @@ class Restaurant(models.Model):
 class Menu(models.Model):
     title = models.CharField(max_length=255, blank=True)
     description = models.CharField(max_length=255, blank=True)
+    price = models.IntegerField(blank=True)
     category = models.ForeignKey("Category", on_delete=models.PROTECT)
 
     def get_price(self, item: CartItem) -> Decimal:

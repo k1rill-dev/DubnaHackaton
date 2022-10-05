@@ -5,14 +5,24 @@
     <title>Title</title>
 </head>
 <body>
-    {%for p in menu%}
-        {{p.title}}
-        {{p.price}}
-        <form class="cart_product" action="{% url 'add_cart' p.id %}"  method="post">
-            {{ cart_product_form }}
-            {% csrf_token %}
-            <button>+</button>
-        </form>
-    {%endfor%}
+<div class="cart">
+    {% with total_items=cart|length %}
+        {% if cart|length > 0 %}
+            Your cart:
+            <a href="{% url "cart:cart_detail" %}">
+                {{ total_items }} item{{ total_items|pluralize }},
+                ${{ cart.get_total_price }}
+            </a>
+        {% else %}
+            Your cart is empty.
+        {% endif %}
+    {% endwith %}
+</div>
+    <p class="price">${{ product.price }}</p>
+    <form action="{% url "cart:cart_add" product.id %}" method="post">
+        {{ cart_product_form }}
+        {% csrf_token %}
+        <input type="submit" value="Add to cart">
+    </form>
 </body>
 </html>
