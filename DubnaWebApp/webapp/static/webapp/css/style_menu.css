@@ -1,0 +1,130 @@
+html {
+width: 392px;
+height: 483px;
+background-color: #FFFFFF;
+}
+.tape{
+margin: 0 auto;
+display: flex;
+justify-content: space-around;
+width: 325px;
+height: 17px;
+margin-top: 95px;}
+
+.tape a{font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 17px;
+text-align: center;
+color: #A5A5A5;}
+
+.card {
+margin-top:50px;
+position: absolute;
+margin-left: 91px;
+width: 210px;
+height: 308px;
+background: #EBEAEA;
+border-radius: 20px;
+}
+
+.card .image {
+margin-top: 15px;
+margin-left: 30px;
+width: 150px;
+height: 150px;
+background: #FFFFFF;
+border-radius: 25px;}
+
+.card .price {
+margin: 5px auto auto auto;
+color: #000000;
+width: 150px;
+height: auto;}
+
+.card .price p{
+margin: 5px auto auto auto;
+word-wrap: break-word;
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 17px;
+text-align: center;
+}
+
+.card .name {
+width: 150px;
+height: auto;
+margin: 5px auto auto auto;
+}
+
+.card .name p{
+margin: 5px auto auto auto;
+word-wrap: break-word;
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 17px;
+text-align: center;
+color: #000000;}
+
+.card .description{
+width: 150px;
+height: auto;
+margin:5px auto auto auto;
+}
+
+.card .description p{
+margin: 5px auto auto auto;
+word-wrap: break-word;
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 15px;
+text-align: center;
+color: #000000;}
+
+.add {box-sizing: border-box;
+width: 125px;
+height: 35px;
+background: #FFFFFF;
+border: 1px solid #000000;
+margin-top: 10px;
+margin-right: 41px;
+margin-left:41px;
+border-radius: 10px;
+}
+
+.add a{font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 13px;
+line-height: 16px;
+text-align: center;
+margin-left: 15px;
+color: #000000;}
+
+.plus {
+    margin-left: -15px;
+    width: 15px;
+    margin-top: 1px;
+    position:absolute;
+height: 15px;}
+
+.user{
+width: 30px;
+height: 30px;
+margin-top: -50px;
+position: absolute;
+margin-left: 40px;}
+
+.loupe {
+margin-top: -50px;
+margin-left: 292px;
+width: 30px;
+height: 30px;
+position: absolute;}
