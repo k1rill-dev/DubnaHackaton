@@ -1,10 +1,37 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title></title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href='{% static "webapp/css/style_menu.css"%}'>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100" rel="stylesheet">
 </head>
 <body>
-    <h1>Меню</h1>
+<!--<img class="user" src=".\static\user.png">-->
+<img class="user" src='{%static "webapp/images/user.png"%}'>
+<img class="loupe" src='{%static "webapp/images/loupe.png"%}'>
+<div>
+    <div class="tape">
+        <a>Завтрак</a>
+        <a>Обед</a>
+        <a>Ужин</a>
+        <a>Напитки</a>
+    </div>
+    <div class="card">
+        <div class="image"></div>
+        <div class="price"><p>Цена</p></div>
+        <div class="name"><p>Название</p></div>
+        <div class="description"><p>Описание товара</p></div>
+        <div>
+            <button class="add">
+                <img class="plus" src='{%static "webapp/images/plus.png"%}'>
+                <a>Добавить</a>
+            </button>
+        </div>
+
+    </div>
+</div>
 </body>
 </html>

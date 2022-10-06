@@ -1,0 +1,35 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href='{% static "webapp/css/style_order.css"%}'>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100" rel="stylesheet">
+</head>
+<body>
+<input class="field" type="text" placeholder="Адрес Доставки"></input>
+<input class="field" type="text" placeholder="Имя и фамилия получателя"></input>
+<input class="field" type="text" placeholder="Телефон"></input>
+<div class="payments">
+    <div>
+        <img class="star" src="{% static "webapp/images/urxMmsFU46WsEdPTVaev-PhotoRoom.png"%}">
+        <button class="payment"><a>Оплата бонусами</a></button>
+    </div>
+    <div>
+        <img class="cards" src="{% static "webapp/images/b94d627b0bd6d063269f36d439a49c5b.png"%}">
+        <button class="payment"><a>Способ оплаты</a></button>
+    </div>
+</div>
+<div class="checkbox">
+    <label class="container">Сохранить информацию на будущее
+        <input type="checkbox" checked="checked">
+    </label>
+</div>
+<div class="ending" style="display:flex; flex-direction:row;">
+    <button class="solo">Оплачу сам</button>
+    <button class="team">Оплачу командой</button>
+</div>
+</body>
+</html>

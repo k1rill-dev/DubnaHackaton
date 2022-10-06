@@ -1,0 +1,61 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='{% static "webapp/css/styles_profile.css"%}' rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <img src="" class="img-profile">
+        <div class="profile-info">
+            <div class="nick">
+                <div class="profile">
+                    <img src="{% static "webapp/images/user.png"%}" class="user">
+                </div>
+                <div class="podlozka">
+                    <p class="text">Никнейм</p>
+                </div>
+            </div>
+            <div class="bonus">
+                <div class="profile">
+                    <img src="{% static "webapp/images/Star 1.png"%}" class="user">
+                </div>
+                <div class="podlozka">
+                    <p class="text">Бонусы</p>
+                </div>
+            </div>
+            <div class="address">
+                <div class="profile">
+                    <img src="{% static "webapp/images/home 1.png"%}" class="user">
+                </div>
+                <div class="podlozka">
+                    <p class="text">Адрес</p>
+                </div>
+            </div>
+        </div>
+        <div class="line"></div>
+        <h2 class="story-order">История заказов</h2>
+    <div class="card-story">
+        <div class="podl-title">
+            <h3 class="text-card">Рестик</h3>
+        </div>
+        <div class="podl-description">
+            <h3 class="text-card-description">Список заказа</h3>
+        </div>
+        <div class="podl-summ">
+            <h3 class="text-card-summ">Сумма</h3>
+            <img src="{% static "webapp/images/payment.png"%}" class="card-pay">
+        </div>
+    </div>
+    <button class="btn-back"><span class="btn-text">Вернуться назад</span></button>
+    </div>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</body>
+</html>
