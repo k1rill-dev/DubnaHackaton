@@ -42,11 +42,18 @@ class Restaurant(models.Model):
     address = models.CharField(max_length=255, blank=True)
     menu = models.ForeignKey("Menu", on_delete=models.PROTECT)
 
+    def __str__(self):
+        return f"{self.title}"
+
+
 class Menu(models.Model):
     title = models.CharField(max_length=255, blank=True)
     description = models.CharField(max_length=255, blank=True)
     price = models.IntegerField(blank=True)
     category = models.ForeignKey("Category", on_delete=models.PROTECT)
+
+    def __str__(self):
+        return f"{self.title}"
 
     def get_price(self, item: CartItem) -> Decimal:
         """The only requirements of the dj_shop_cart package apart from the fact that the products you add
@@ -58,3 +65,6 @@ class Menu(models.Model):
 
 class Category(models.Model):
     title = models.CharField(max_length=255, blank=True)
+
+    def __str__(self):
+        return f"{self.title}"

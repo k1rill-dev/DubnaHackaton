@@ -14,13 +14,6 @@ def index(request):
                                                         'cart_product_form': cart_product_form})
 
 
-
-# def index(request):
-#     menu = Menu.objects.all()
-#     cart_product_form = CartAddProductForm
-#     return render(request, 'webapp/index.html', {"menu":menu, "cart_product_form": cart_product_form})
-
-
 def list_restaurants(request):
     return render(request, 'webapp/list_restaurants.html')
 
