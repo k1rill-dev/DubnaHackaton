@@ -7,24 +7,29 @@ from django.dispatch import receiver
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    tg_username = models.CharField(max_length=255, blank=False)
-    tg_id = models.IntegerField(blank=False)
+    # user = models.OneToOneField(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255, blank=True)
+    surname = models.CharField(max_length=300, blank=True)
+    tg_username = models.CharField(max_length=255, blank=True)
+    tg_id = models.IntegerField(blank=True)
+    address = models.CharField(blank=True, max_length=255)
+    bonus = models.IntegerField(blank=True)
+    phone_number = models.BigIntegerField(blank=True)
 
     def __str__(self):
         return f"{self.tg_username}"
 
 
 # signals to User model
-@receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Profile.objects.create(user=instance)
-
-
-@receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
-    instance.profile.save()
+# @receiver(post_save, sender=User)
+# def create_user_profile(sender, instance, created, **kwargs):
+#     if created:
+#         Profile.objects.create(user=instance)
+#
+#
+# @receiver(post_save, sender=User)
+# def save_user_profile(sender, instance, **kwargs):
+#     instance.profile.save()
 
 
 class Order(models.Model):
@@ -32,7 +37,9 @@ class Order(models.Model):
     restaurant = models.ForeignKey("Restaurant", on_delete=models.CASCADE)
     address_to_deliver = models.CharField(max_length=255, blank=True)
     is_delivered = models.BooleanField(default=False, blank=True)
+    is_pay = models.BooleanField(default=False, blank=True)
     price = models.IntegerField(blank=True)
+    comments = models.CharField(max_length=255, blank=True, null=True)
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -43,7 +50,6 @@ class Restaurant(models.Model):
     title = models.CharField(max_length=255, blank=True)
     rating = models.FloatField(blank=True)
     address = models.CharField(max_length=255, blank=True)
-    menu = models.ForeignKey("Menu", on_delete=models.PROTECT)
 
     def __str__(self):
         return f"{self.title}"
@@ -53,6 +59,7 @@ class Menu(models.Model):
     title = models.CharField(max_length=255, blank=True)
     description = models.CharField(max_length=255, blank=True)
     price = models.IntegerField(blank=True)
+    restaurant = models.ForeignKey("Restaurant", on_delete=models.PROTECT)
     category = models.ForeignKey("Category", on_delete=models.PROTECT)
 
     def __str__(self):

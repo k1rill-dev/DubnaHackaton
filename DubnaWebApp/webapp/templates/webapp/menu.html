@@ -10,7 +10,7 @@
 </head>
 <body>
 <!--<img class="user" src=".\static\user.png">-->
-<img class="user" src='{%static "webapp/images/user.png"%}'>
+<a href="{% url "profile"%}"><img class="user" src='{%static "webapp/images/user.png"%}'></a>
 <img class="loupe" src='{%static "webapp/images/loupe.png"%}'>
 <div>
     <div class="tape">
@@ -19,19 +19,25 @@
         <a>Ужин</a>
         <a>Напитки</a>
     </div>
+    {%for m in menu%}
     <div class="card">
         <div class="image"></div>
-        <div class="price"><p>Цена</p></div>
-        <div class="name"><p>Название</p></div>
-        <div class="description"><p>Описание товара</p></div>
+        <div class="price"><p>{{m.price}}</p></div>
+        <div class="name"><p>{{m.title}}</p></div>
+        <div class="description"><p>{{m.description}}</p></div>
         <div>
-            <button class="add">
+            <form action="{% url "cart:cart_add" m.id %}" method="post">
+                {{ cart_product_form }}
+                {% csrf_token %}
+                <button class="add" type="submit" value="Add to cart">
                 <img class="plus" src='{%static "webapp/images/plus.png"%}'>
-                <a>Добавить</a>
-            </button>
+                <a>Добавить</a></button>
+            </form>
+
         </div>
 
     </div>
+    {%endfor%}
 </div>
 </body>
 </html>

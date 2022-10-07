@@ -17,15 +17,17 @@ def index(request):
 
 
 def list_restaurants(request):
-    return render(request, 'webapp/restiki.html')
+    restiki = Restaurant.objects.all()
+    context = {
+        'restiki': restiki
+    }
+    return render(request, 'webapp/restiki.html', context)
 
 
 def menu(request):
-    return render(request, 'webapp/menu.html')
-
-
-def cart(request):
-    return render(request, 'webapp/cart.html')
+    menu = Menu.objects.all()
+    cart_product_form = CartAddProductForm()
+    return render(request, 'webapp/menu.html', {"menu": menu, 'cart_product_form': cart_product_form})
 
 
 def order(request):
