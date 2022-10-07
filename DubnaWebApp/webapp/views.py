@@ -24,8 +24,8 @@ def list_restaurants(request):
     return render(request, 'webapp/restiki.html', context)
 
 
-def menu(request):
-    menu = Menu.objects.all()
+def menu(request, pk):
+    menu = Menu.objects.all(restaurant=pk)
     cart_product_form = CartAddProductForm()
     return render(request, 'webapp/menu.html', {"menu": menu, 'cart_product_form': cart_product_form})
 
