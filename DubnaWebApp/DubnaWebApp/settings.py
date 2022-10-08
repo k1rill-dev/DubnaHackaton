@@ -130,7 +130,8 @@ STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'webapp/static'),
-    os.path.join(BASE_DIR, 'cart/static')
+    os.path.join(BASE_DIR, 'cart/static/cart'),
+
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
