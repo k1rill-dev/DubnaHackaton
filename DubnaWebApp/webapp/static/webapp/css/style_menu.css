@@ -20,30 +20,38 @@ text-align: center;
 color: #A5A5A5;}
 
 .card {
-margin-top:50px;
-position: absolute;
-margin-left: 91px;
-width: 210px;
-height: 308px;
-background: #EBEAEA;
-border-radius: 20px;
+position: relative;
+    margin-top: 50px;
+    margin-left: 91px;
+    width: 210px;
+    height: 346px;
+    background: #EBEAEA;
+    border-radius: 20px;
 }
 
 .card .image {
-margin-top: 15px;
-margin-left: 30px;
-width: 150px;
-height: 150px;
-background: #FFFFFF;
-border-radius: 25px;}
+position: relative;
+    margin-top: 56px;
+    margin-left: 30px;
+    /* margin-bottom: 58px; */
+    top: 19px;
+    width: 150px;
+    height: 150px;
+    background: #FFFFFF;
+    border-radius: 25px;
+    }
 
 .card .price {
-margin: 5px auto auto auto;
-color: #000000;
-width: 150px;
-height: auto;}
+position: relative;
+    margin: 5px auto auto auto;
+    top: 20px;
+    color: #000000;
+    width: 150px;
+    height: auto;
+    }
 
 .card .price p{
+position: relative;
 margin: 5px auto auto auto;
 word-wrap: break-word;
 font-family: 'Montserrat';
@@ -55,12 +63,15 @@ text-align: center;
 }
 
 .card .name {
-width: 150px;
-height: auto;
-margin: 5px auto auto auto;
+position: relative;
+    width: 150px;
+    height: auto;
+    top: 20px;
+    margin: 5px auto auto auto;
 }
 
 .card .name p{
+position: relative;
 margin: 5px auto auto auto;
 word-wrap: break-word;
 font-family: 'Montserrat';
@@ -72,23 +83,29 @@ text-align: center;
 color: #000000;}
 
 .card .description{
-width: 150px;
-height: auto;
-margin:5px auto auto auto;
+position: relative;
+    width: 180px;
+    height: auto;
+    top: 19px;
+    margin: 5px auto auto auto;
 }
 
 .card .description p{
-margin: 5px auto auto auto;
-word-wrap: break-word;
-font-family: 'Montserrat';
-font-style: normal;
-font-weight: 400;
-font-size: 12px;
-line-height: 15px;
-text-align: center;
-color: #000000;}
+position: relative;
+    margin: 5px auto auto auto;
+    margin-bottom: 43px;
+    word-wrap: break-word;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    color: #000000;}
 
-.add {box-sizing: border-box;
+.add {
+position: relative;
+box-sizing: border-box;
 width: 125px;
 height: 35px;
 background: #FFFFFF;
@@ -99,7 +116,9 @@ margin-left:41px;
 border-radius: 10px;
 }
 
-.add a{font-family: 'Montserrat';
+.add a{
+position: relative;
+font-family: 'Montserrat';
 font-style: normal;
 font-weight: 600;
 font-size: 13px;
@@ -109,22 +128,31 @@ margin-left: 15px;
 color: #000000;}
 
 .plus {
+position: relative;
     margin-left: -15px;
     width: 15px;
     margin-top: 1px;
-    position:absolute;
 height: 15px;}
 
 .user{
 width: 30px;
-height: 30px;
-margin-top: -50px;
-position: absolute;
-margin-left: 40px;}
+    height: 30px;
+    margin-top: -186px;
+    position: relative;
+    margin-left: 40px;
+    top: 100px;
+}
 
 .loupe {
 margin-top: -50px;
 margin-left: 292px;
 width: 30px;
 height: 30px;
-position: absolute;}
+position: relative;
+    top: 83px;
+}
+
+.quan{
+    position: relative;
+    align: center;
+}

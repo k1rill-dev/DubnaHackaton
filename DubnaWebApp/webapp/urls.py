@@ -3,8 +3,9 @@ from .views import *
 
 urlpatterns = [
     path('', index, name='index'),
-    path('list_restaurants', list_restaurants, name='list_restaurants'),
-    path('menu/<int:pk>', menu, name='menu'),
+    path('list_restaurants/', list_restaurants, name='list_restaurants'),
+    path('menu/<int:restik>/', menu, name='menu'),
+    # path('menu/<int:restik>/<int:cat_pk>', menu, name='menu'),
     path('order', order, name='order'),
-    path('profile', profile, name='profile')
+    path('profile/', profile, name='profile')
 ]

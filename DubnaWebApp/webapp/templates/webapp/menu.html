@@ -14,28 +14,30 @@
 <img class="loupe" src='{%static "webapp/images/loupe.png"%}'>
 <div>
     <div class="tape">
+
         <a>Завтрак</a>
         <a>Обед</a>
         <a>Ужин</a>
         <a>Напитки</a>
     </div>
-    {%for m in menu%}
+
+    {%for m in prod%}
     <div class="card">
         <div class="image"></div>
-        <div class="price"><p>{{m.price}}</p></div>
+        <div class="price"><p>{{m.price}}₽</p></div>
         <div class="name"><p>{{m.title}}</p></div>
         <div class="description"><p>{{m.description}}</p></div>
         <div>
             <form action="{% url "cart:cart_add" m.id %}" method="post">
+                <center>
                 {{ cart_product_form }}
+                </center>
                 {% csrf_token %}
                 <button class="add" type="submit" value="Add to cart">
                 <img class="plus" src='{%static "webapp/images/plus.png"%}'>
                 <a>Добавить</a></button>
             </form>
-
         </div>
-
     </div>
     {%endfor%}
 </div>

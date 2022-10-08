@@ -1,19 +1,10 @@
-from dj_shop_cart.cart import get_cart_class
-from django.http import HttpRequest
-from django.shortcuts import render, get_object_or_404, redirect
-from django.views.decorators.http import require_POST
-
-from cart.cart import Cart
+from django.shortcuts import render, get_object_or_404
 from cart.forms import CartAddProductForm
 from .models import *
 
 
 def index(request):
-    product = get_object_or_404(Menu,
-                                id=1)
-    cart_product_form = CartAddProductForm()
-    return render(request, 'webapp/index.html', {'product': product,
-                                                 'cart_product_form': cart_product_form})
+    return render(request, 'webapp/index.html')
 
 
 def list_restaurants(request):
@@ -24,10 +15,10 @@ def list_restaurants(request):
     return render(request, 'webapp/restiki.html', context)
 
 
-def menu(request, pk):
-    menu = Menu.objects.all(restaurant=pk)
+def menu(request, restik):
+    prod = Menu.objects.filter(restaurant=restik)
     cart_product_form = CartAddProductForm()
-    return render(request, 'webapp/menu.html', {"menu": menu, 'cart_product_form': cart_product_form})
+    return render(request, 'webapp/menu.html', {"prod": prod, 'cart_product_form': cart_product_form})
 
 
 def order(request):

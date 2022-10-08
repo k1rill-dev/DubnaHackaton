@@ -16,6 +16,7 @@ class Profile(models.Model):
     address = models.CharField(blank=True, max_length=255)
     bonus = models.IntegerField(blank=True)
     phone_number = models.BigIntegerField(blank=True)
+    is_stuff = models.BooleanField(default=False, blank=True)
 
     def __str__(self):
         return f"{self.tg_username}"
@@ -42,6 +43,7 @@ class Order(models.Model):
     price = models.IntegerField(blank=True)
     comments = models.CharField(max_length=255, blank=True, null=True)
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    date_of_create = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.order_list[:10]}; {self.owner.tg_username}"
@@ -55,10 +57,6 @@ class Restaurant(models.Model):
     def __str__(self):
         return f"{self.title}"
 
-    def get_absolute_url(self):
-        return reverse_lazy('menu', kwargs={'pk': self.pk})
-
-
 class Menu(models.Model):
     title = models.CharField(max_length=255, blank=True)
     description = models.CharField(max_length=255, blank=True)
@@ -68,13 +66,6 @@ class Menu(models.Model):
 
     def __str__(self):
         return f"{self.title}"
-
-    def get_price(self, item: CartItem) -> Decimal:
-        """The only requirements of the dj_shop_cart package apart from the fact that the products you add
-        to the cart must be instances of django based models. You can use a different name for this method
-        but be sure to update the corresponding setting (see Configuration). Even if you change the name the
-        function signature should match this one.
-        """
 
 
 class Category(models.Model):

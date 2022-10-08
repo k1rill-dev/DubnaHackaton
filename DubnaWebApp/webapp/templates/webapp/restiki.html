@@ -5,30 +5,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href='{% static "webapp/css/style_sec.css"%}'>
-    <link rel="stylesheet" href='{% static "webapp/css/fonts.css"%}'>
+    <link rel="stylesheet" href="{% static "webapp/css/style_sec.css" %}">
+    <link rel="stylesheet" href="{% static "webapp/css/fonts.css"%}">
     <title>Food service</title>
 </head>
 <body style="display: flex; flex-direction: column">
+    {%for r in restiki%}
     <div class="container">
-        {%for restik in restiki%}
-        <div class="card">
-            <div class="item">
-                <img src='{%static "webapp/images/green_star.png"%}' class="star1">
-            </div>
-            <div class="rest_img">
-            <div class="rest_img2"></div>
-                    <div class="flex layout">
-                        <a href="{% url 'menu'  %}"><h2 class="rest_name">{{restik.title}}</h2></a>
-                        <h1 class="numbers">{{restik.rating}}</h1>
-                        <div class="small_text">{{restik.address}}</div>
-                    </div>
-            </div>
+        <div class="item">
+        <img src="{% static "webapp/images/green_star.png"%}" class="star1">
         </div>
-        {%endfor%}
-
+        <div class="rest_img">
+            <h1 class="numbers">{{r.rating}}</h1>
+                <div class="flex layout">
+                    <a href="{%url "menu" r.pk%}"><h2 class="rest_name">{{r.title}}</h2></a>
+                        <div class="small_text">{{r.address}}</div>
+                </div>
+        </div>
     </div>
+    {%endfor%}
     <script scr="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="{%static "webapp/js/app.js"%}"></script>
+    <script src="{%static "webapp/js/anim.js"%}">
 </body>
 </html>

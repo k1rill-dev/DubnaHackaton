@@ -1,17 +1,17 @@
 body {
     width: 392px;
-    height: 483px;
-    
+    height: auto;
+
   }
 
 .container {
     width: 392px;
-    height: 483px;
-    background: #EFEFEF;
+    height: auto;
+    background: white;
 }
 
 .title {
-    position: absolute;
+    position: relative;
     width: 134px;
     height: 29px;
     left: 16px;
@@ -29,7 +29,7 @@ body {
     width: 62px;
     color: rgba(62,211,59,1);
     position: absolute;
-    top: 44px;
+    top: 29px;
     left: 324px;
     font-family: Montserrat;
     font-weight: Regular;
@@ -39,80 +39,70 @@ body {
   }
 
 .cart-head{
-    position: absolute;
+    position: relative;
     width: 392px;
     height: 168px;
-    left: 8px;
+    left: 0px;
     top: 0px;
-
     background: #FFFFFF;
 }
 .img-cart{
-    position: absolute;
+    position: relative;
     width: 40px;
     height: 40px;
     left: 16px;
-    top: 104px;
+    top: 12px;
 }
 .product-title{
-    position: absolute;
-    width: 108px;
-    height: 15px;
-    left: 71px;
-    top: 93px;
-
+position: relative;
+    width: auto;
+    height: auto;
+    left: -77px;
+    top: -48px;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
     font-size: 12px;
     line-height: 15px;
-    /* identical to box height */
-
     text-align: center;
-
     color: #000000;
+    margin-bottom: auto;
 }
 .decription-product{
-    position: absolute;
+position: relative;
     width: 70px;
     height: 12px;
-    left: 71px;
-    top: 120px;
-
+    left: 99px;
+    top: -79px;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 300;
     font-size: 10px;
     line-height: 12px;
     text-align: center;
-
     color: #000000;
 }
 .price {
-    position: absolute;
+position: relative;
     width: 52px;
     height: 15px;
-    left: 324px;
-    top: 90px;
-
+    left: 290px;
+    top: -175px;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
     font-size: 12px;
     line-height: 15px;
-    /* identical to box height */
-
     text-align: center;
-
     color: #000000;
 }
 
 .count{
-    position: absolute;
-    width: 28px;
+position: relative;
+    width: auto;
     height: 15px;
-    left: 318px;
-    top: 110px;
+    left: 122px;
+    top: -171px;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
@@ -122,17 +112,17 @@ body {
     color: #000000;
 }
 .comment {
-    position: absolute;
+    position: relative;
     width: 392px;
-    height: 45px;
+    height: auto;
     left: 8px;
-    top: 204px;
-
+    top: auto;
+    margin-top: 35px;
     background-color: #FFFFFF;
-    }
+}
 
 .text-com {
-    position: absolute;
+    position: relative;
     width: 157px;
     height: 15px;
     left: 3px;
@@ -150,7 +140,7 @@ body {
     color: #CCCBCB;
 }
 .form-control{
-    position: absolute;
+    position: relative;
     top: 0px;
     width: 386px;
     height: 224px;
@@ -168,15 +158,15 @@ textarea::placeholder{
 }
 
 .foot{
-    position: absolute;
+position: absolute;
     width: 392px;
-    height: 57px;
+    height: auto;
     left: 8px;
-    top: 434px;
+    top: auto;
 }
 
 .price-foot{
-    position: absolute;
+    position: relative;
     width: 60px;
     height: 21px;
     left: 20px;
@@ -194,7 +184,7 @@ textarea::placeholder{
     color: #000000;
 }
 .count-foot{
-    position: absolute;
+    position: relative;
     width: 173px;
     height: 14px;
     left: -38px;
@@ -210,11 +200,11 @@ textarea::placeholder{
     color: #000000;
 }
 .btn{
-    position: absolute;
+position: relative;
     width: 171px;
     height: 37px;
-    left: 105px;
-    top: 10px;
+    left: 221px;
+    top: -33px;
     background: #3ED33B;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
@@ -232,17 +222,54 @@ textarea::placeholder{
     color: #FFFFFF;
 }
 .remove{
-    top: 174px;
+    top: 0px;
     position: relative;
-    left: 256px;
+    left: 366px;
 }
-label {
-    position: relative;
-    top: 3px;
-    left: 49px;
+
+.cart-head .card:first-child {
+    padding-top:30px;
 }
-select#id_quantity {
+.card{
+    padding-top: 35px;
+    height: 15px;
+}
+
+.total-price{
     position: relative;
-    top: 3px;
-    left: 47px;
+    top: 10px;
+    left: 13px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+
+    color: black;
+}
+.minus-prod{
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+
+.plus-btn {
+position: relative;
+    top: -39px;
+    left: 62px;
+    background: white;
+    border-radius: 10px;
+    border-color: white;
+}
+
+.plus-prod{
+    position: relative;
+}
+.minus-btn{
+position: relative;
+    background: white;
+    top: -107px;
+    left: 172px;
+    border-radius: 10px;
+    border-color: white;
 }

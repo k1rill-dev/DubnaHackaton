@@ -16,32 +16,43 @@
     <div class="container">
         <div class="cart-head">
             <h1 class="title">Ваш заказ</h1>
-            <a href="{% url "menu" %}" class="button light"><h5 class="refactor">Изменить</h5></a>
+            <a href="{% url "list_restaurants" %}" class="button light"><h5 class="refactor">Изменить</h5></a>
             {% for item in cart %}
                 {% with product=item.product %}
             <div class="card">
                 <img src="" class="img-cart">
                 <h3 class="product-title">{{ product.title }}</h3>
-                <h4 class="decription-product">{{product.description}}</h4>
-                <h4 class="price">{{ item.price }}р</h4>
-                <h4 class="count">Итоговая цена:{{ item.total_price }}р</h4>
+                <form action="{% url "cart:cart_plus" product.id %}" method="post">
+                    {{cart_product_form}}
+                    {% csrf_token %}
+                    <button type="submit" class="plus-btn"><img src="{%static 'cart/images/plus.png'%}" class="minus-prod" width="20px" height="20px"></button>
+                </form>
+                <h4 class="decription-product">
+                    Количество: {{item.quantity }}
+                </h4>
+                <form action="{% url "cart:cart_minus" product.id %}" method="post">
+                    {{cart_product_form}}
+                    {% csrf_token %}
+                    <button type="submit" class="minus-btn"><img src="{%static 'cart/images/minus.png'%}" class="plus-prod" width="20px" height="20px"></button>
+                </form>
+                <h4 class="price">{{ item.price }}₽</h4>
+                <h4 class="count">Итого: {{ item.total_price }}₽</h4>
             </div>
-            <a class="remove" href='{% url "cart:cart_remove" product.id%}'>Очистить корзину</a>
+            <a class="remove" href='{% url "cart:cart_remove" product.id%}'><img src="{%static 'cart/images/krest.png'%}" width="20px" height="20px"></a>
             {% endwith %}
         {% endfor %}
-
-        </div>
         <div class="comment">
             <form action="" method="post">
-
                 <textarea class="form-control" placeholder="Любые пожелания, детали и т.д." maxlength="255"></textarea>
             </form>
         </div>
        <div class="foot">
+           <p class="total-price">К оплате: {{cart.get_total_price}}₽</p>
             <a href="{%url "order"%}"><button class="btn"><span class="btn-text">Перейти к оформлению</span></button></a>
        </div>
+        </div>
+
     </div>
     <script src="https://telegram.org/js/telegram-web-app.js?1"></script>
-    <script src="app.js"></script>
 </body>
 </html>
