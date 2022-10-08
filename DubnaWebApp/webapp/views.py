@@ -1,12 +1,12 @@
-from dj_shop_cart.cart import get_cart_class
+# from dj_shop_cart.cart import get_cart_class
 from django.http import HttpRequest
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.decorators.http import require_POST
 
-from cart.cart import Cart
-from cart.forms import CartAddProductForm
+# from cart.cart import Cart
+# from cart.forms import CartAddProductForm
 from .models import *
-
+from .forms import MakeOrder
 
 def index(request):
     product = get_object_or_404(Menu,
@@ -31,7 +31,14 @@ def menu(request, pk):
 
 
 def order(request):
-    return render(request, 'webapp/order.html')
+    if request.method == 'POST':
+        form = MakeOrder(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('order')
+    else:
+        form = MakeOrder()
+    return render(request, 'webapp/order.html', {'form': form})
 
 
 def profile(request):

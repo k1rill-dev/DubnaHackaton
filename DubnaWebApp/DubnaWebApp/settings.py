@@ -79,12 +79,8 @@ WSGI_APPLICATION = 'DubnaWebApp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dubna_hackaton',
-        'USER': 'postgres',
-        'PASSWORD': 'KOKI___KLAVY123',
-        'HOST': 'localhost',
-        'PORT': 5432,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 # если что, фейк инфа о базе данных))
