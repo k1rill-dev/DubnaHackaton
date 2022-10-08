@@ -1,10 +1,6 @@
-# from dj_shop_cart.cart import get_cart_class
 from django.http import HttpRequest
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.decorators.http import require_POST
-
-# from cart.cart import Cart
-# from cart.forms import CartAddProductForm
 from .models import *
 from .forms import MakeOrder
 
