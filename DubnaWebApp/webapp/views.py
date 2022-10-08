@@ -1,7 +1,11 @@
+from django.http import HttpRequest
+from django.shortcuts import render, get_object_or_404, redirect
+from django.views.decorators.http import require_POST
+
 from django.shortcuts import render, get_object_or_404
 from cart.forms import CartAddProductForm
 from .models import *
-
+from .forms import MakeOrder
 
 def index(request):
     return render(request, 'webapp/index.html')
@@ -22,7 +26,14 @@ def menu(request, restik):
 
 
 def order(request):
-    return render(request, 'webapp/order.html')
+    if request.method == 'POST':
+        form = MakeOrder(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('order')
+    else:
+        form = MakeOrder()
+    return render(request, 'webapp/order.html', {'form': form})
 
 
 def profile(request):

@@ -9,12 +9,11 @@ from django.urls import reverse_lazy
 
 class Profile(models.Model):
     # user = models.OneToOneField(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=255, blank=True)
-    surname = models.CharField(max_length=300, blank=True)
+    full_name = models.CharField(max_length=255, blank=True)
     tg_username = models.CharField(max_length=255, blank=True)
-    tg_id = models.IntegerField(blank=True)
+    tg_id = models.IntegerField(blank=True, null = True, default = 0)
     address = models.CharField(blank=True, max_length=255)
-    bonus = models.IntegerField(blank=True)
+    bonus = models.IntegerField(blank=True, null = True, default = 0)
     phone_number = models.BigIntegerField(blank=True)
     is_stuff = models.BooleanField(default=False, blank=True)
 
