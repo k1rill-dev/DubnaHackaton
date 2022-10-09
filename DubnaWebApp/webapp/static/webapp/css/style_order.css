@@ -1,6 +1,6 @@
 html {
 width: 392px;
-height: 483px;
+height: max;
 background-color: #EFEFEF;
 }
 .payments {

@@ -1,6 +1,6 @@
 html {
 width: 392px;
-height: 483px;
+height: max;
 background-color: #FFFFFF;
 }
 .tape{
@@ -22,7 +22,7 @@ color: #A5A5A5;}
 .card {
 position: relative;
     margin-top: 50px;
-    margin-left: 91px;
+    margin-left: 35px;
     width: 210px;
     height: 346px;
     background: #EBEAEA;
@@ -155,4 +155,13 @@ position: relative;
 .quan{
     position: relative;
     align: center;
+}
+li {
+    list-style-type: none;
+}
+
+.search{
+    position: relative;
+    top: -54px;
+    left: 95px;
 }

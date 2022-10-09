@@ -7,7 +7,7 @@ body {
 .container {
     position: relative;
     width: 392px;
-    height: 221px;
+    height: max;
     background: #FFFFFF;
 }
 
