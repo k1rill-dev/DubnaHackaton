@@ -24,6 +24,7 @@ def cart_remove(request, product_id):
     cart.remove(product)
     return redirect('cart:cart_detail')
 
+
 @require_POST
 def cart_upd(request, product_id):
     cart = Cart(request)
@@ -35,6 +36,7 @@ def cart_upd(request, product_id):
                  quantity=1,
                  update_quantity=False)
     return redirect('cart:cart_detail')
+
 
 @require_POST
 def cart_minus(request, product_id):
@@ -49,7 +51,10 @@ def cart_minus(request, product_id):
                  minus=True)
     return redirect('cart:cart_detail')
 
+
 def cart_detail(request):
     cart = Cart(request)
     cart_product_form = CartUpdProductForm()
-    return render(request, 'cart/cart.html', {'cart': cart, 'cart_product_form': cart_product_form})
+    comment_form = CommentForm()
+    return render(request, 'cart/cart.html',
+                  {'cart': cart, 'cart_product_form': cart_product_form, 'comment_form': comment_form})

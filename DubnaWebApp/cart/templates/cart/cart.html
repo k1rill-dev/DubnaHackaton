@@ -42,14 +42,12 @@
             {% endwith %}
         {% endfor %}
         <div class="comment">
-            <form action="" method="post">
-                <textarea class="form-control" placeholder="Любые пожелания, детали и т.д." maxlength="255"></textarea>
-            </form>
+            <div class="foot">
+                <p class="total-price">К оплате: {{cart.get_total_price}}₽</p>
+                <a href="{%url 'order'%}"><button class="btn"><span class="btn-text">Перейти к оформлению</span></button></a></a>
+            </div>
         </div>
-       <div class="foot">
-           <p class="total-price">К оплате: {{cart.get_total_price}}₽</p>
-            <a href="{%url "order"%}"><button class="btn"><span class="btn-text">Перейти к оформлению</span></button></a>
-       </div>
+
         </div>
 
     </div>

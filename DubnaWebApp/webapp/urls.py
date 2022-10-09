@@ -7,5 +7,5 @@ urlpatterns = [
     path('menu/<int:restik>/', menu, name='menu'),
     # path('menu/<int:restik>/<int:cat_pk>', menu, name='menu'),
     path('order', order, name='order'),
-    path('profile/', profile, name='profile')
+    # path('profile/', profile, name='profile')
 ]

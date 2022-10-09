@@ -1,6 +1,11 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect
+
+from django.shortcuts import render
+
+from cart.cart import Cart
 from cart.forms import CartAddProductForm
 from .models import *
+from .forms import MakeOrder
 
 
 def index(request):
@@ -22,8 +27,29 @@ def menu(request, restik):
 
 
 def order(request):
-    return render(request, 'webapp/order.html')
+    if request.method == 'POST':
+        form = MakeOrder(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            cart = Cart(request)
+            a = [i for i in cart]
+            # print(cd['address'], cd['full_name'], cd['phone_number'])
+            quantity = [i['quantity'] for i in a]
+            price = [float(i['price']) for i in a]
+            product = [str(i['product']) for i in a]
+            total_price = [float(i['total_price']) for i in a]
+            # pprint.pprint(a)
+            res_address = [i['product'].restaurant.address for i in a]
+            # print(cart.get_total_price())
+            Order.objects.create(order_list=product, count_list=quantity, price_list=price, address_from=res_address,
+                                 address_to=cd['address'], price=total_price, comments=cd['comments']
+                                 )
+            return redirect('order')
+    else:
+        form = MakeOrder()
+    return render(request, 'webapp/order.html', {'form': form})
 
 
-def profile(request):
-    return render(request, 'webapp/profile.html')
+# def profile(request):
+#     Profile.objects.get()
+#     return render(request, 'webapp/profile.html')

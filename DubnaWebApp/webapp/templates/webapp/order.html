@@ -5,20 +5,24 @@
     <meta charset="UTF-8">
     <title>Order</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="{%static 'js/app.js'%}"></script>
     <link rel="stylesheet" href='{% static "webapp/css/style_order.css"%}'>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100" rel="stylesheet">
 </head>
 <body>
-<input class="field" type="text" placeholder="Адрес Доставки"></input>
-<input class="field" type="text" placeholder="Имя и фамилия получателя"></input>
-<input class="field" type="text" placeholder="Телефон"></input>
+<form action="{%url 'order'%}" onsubmit="window.Telegram.WebApp.close;" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button class="solo" type="submit">Оплачу сам</button>
+    <button class="team" type="submit">Оплачу командой</button>
+</form>
 <div class="payments">
     <div>
-        <img class="star" src="{% static "webapp/images/urxMmsFU46WsEdPTVaev-PhotoRoom.png"%}">
+        <img class="star" src="{% static "webapp/images/urxMmsFU46WsEdPTVaev-PhotoRoom.png" %}">
         <button class="payment"><a>Оплата бонусами</a></button>
     </div>
     <div>
-        <img class="cards" src="{% static "webapp/images/b94d627b0bd6d063269f36d439a49c5b.png"%}">
+        <img class="cards" src="{% static "webapp/images/b94d627b0bd6d063269f36d439a49c5b.png" %}">
         <button class="payment"><a>Способ оплаты</a></button>
     </div>
 </div>
@@ -28,8 +32,6 @@
     </label>
 </div>
 <div class="ending" style="display:flex; flex-direction:row;">
-    <button class="solo">Оплачу сам</button>
-    <button class="team">Оплачу командой</button>
 </div>
 </body>
 </html>

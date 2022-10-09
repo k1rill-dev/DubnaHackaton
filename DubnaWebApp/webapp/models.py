@@ -1,20 +1,13 @@
-from decimal import Decimal
-from dj_shop_cart.cart import CartItem
 from django.db import models
-from django.contrib.auth.models import User
-from django.db.models.signals import post_save
-from django.dispatch import receiver
-from django.urls import reverse_lazy
 
 
 class Profile(models.Model):
     # user = models.OneToOneField(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=255, blank=True)
-    surname = models.CharField(max_length=300, blank=True)
+    full_name = models.CharField(max_length=255, blank=True)
     tg_username = models.CharField(max_length=255, blank=True)
-    tg_id = models.IntegerField(blank=True)
+    tg_id = models.IntegerField(blank=True, null=True, default=0)
     address = models.CharField(blank=True, max_length=255)
-    bonus = models.IntegerField(blank=True)
+    bonus = models.IntegerField(blank=True, null=True, default=0)
     phone_number = models.BigIntegerField(blank=True)
     is_stuff = models.BooleanField(default=False, blank=True)
 
@@ -35,18 +28,20 @@ class Profile(models.Model):
 
 
 class Order(models.Model):
-    order_list = models.CharField(max_length=255, blank=True)
-    restaurant = models.ForeignKey("Restaurant", on_delete=models.CASCADE)
-    address_to_deliver = models.CharField(max_length=255, blank=True)
+    order_list = models.CharField(max_length=1000, blank=True)
+    count_list = models.CharField(max_length=1000, blank=True)
+    price_list = models.CharField(max_length=1000, blank=True)
+    address_from = models.CharField(max_length=1000, blank=True)
+    address_to = models.CharField(max_length=1000, blank=True)
     is_delivered = models.BooleanField(default=False, blank=True)
     is_pay = models.BooleanField(default=False, blank=True)
-    price = models.IntegerField(blank=True)
+    price = models.CharField(max_length=1000, blank=True)
     comments = models.CharField(max_length=255, blank=True, null=True)
-    owner = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    date_of_create = models.DateTimeField(auto_now_add=True)
+    owner = models.ForeignKey(Profile, on_delete=models.CASCADE, blank=True, null=True)
+    date_of_create = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
     def __str__(self):
-        return f"{self.order_list[:10]}; {self.owner.tg_username}"
+        return f"{self.order_list[:10]}; {self.owner.tg_id}"
 
 
 class Restaurant(models.Model):
@@ -56,6 +51,7 @@ class Restaurant(models.Model):
 
     def __str__(self):
         return f"{self.title}"
+
 
 class Menu(models.Model):
     title = models.CharField(max_length=255, blank=True)
