@@ -1,5 +1,1 @@
-<<<<<<< Updated upstream
 web: gunicorn DubnaWebApp.wsgi
-=======
-web: gunicorn DubnaWebApp.wsgi --log-file
->>>>>>> Stashed changes
