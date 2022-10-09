@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,13 +78,23 @@ WSGI_APPLICATION = 'DubnaWebApp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'dubna_hackaton',
+#         'USER': 'postgres',
+#         'PASSWORD': 'KOKI___KLAVY123',
+#         'HOST': 'localhost',
+#         'PORT': 5432,
+#     }
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dubna_hackaton',
-        'USER': 'postgres',
-        'PASSWORD': 'KOKI___KLAVY123',
-        'HOST': 'localhost',
+        'NAME': 'dfr28gnh4ktij',
+        'USER': 'whzyfumbajkvmp',
+        'PASSWORD': 'de7e3e7353ab247f33aa144afda7c1939f2a8b338297ccc5d1fb4d53cec384d9',
+        'HOST': 'ec2-3-219-19-205.compute-1.amazonaws.com',
         'PORT': 5432,
     }
 }
@@ -141,3 +152,5 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 CART_SESSION_ID = 'cart'
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
