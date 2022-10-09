@@ -204,7 +204,7 @@ position: relative;
     width: 171px;
     height: 37px;
     left: 221px;
-    top: 6px;
+    top: -25px;
     background: #3ED33B;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
@@ -237,7 +237,7 @@ position: relative;
 
 .total-price{
 position: relative;
-    top: -28px;
+    top: 7px;
     left: 13px;
     font-family: 'Montserrat';
     font-style: normal;

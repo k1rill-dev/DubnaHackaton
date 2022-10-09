@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-87dtij8v3cqcbzntz+t13kar5lx$fvg#+b64pq%ijxh&3n9c=6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
@@ -91,10 +92,10 @@ WSGI_APPLICATION = 'DubnaWebApp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dfr28gnh4ktij',
-        'USER': 'whzyfumbajkvmp',
-        'PASSWORD': 'de7e3e7353ab247f33aa144afda7c1939f2a8b338297ccc5d1fb4d53cec384d9',
-        'HOST': 'ec2-3-219-19-205.compute-1.amazonaws.com',
+        'NAME': 'd5n6nt2sh4lhdl',
+        'USER': 'etmlokgwbnykro',
+        'PASSWORD': 'c41c54ac5c89c73e23a3ee26e827115b04acbdf6322a5cefad144bab37ae1aef',
+        'HOST': 'ec2-52-4-87-74.compute-1.amazonaws.com',
         'PORT': 5432,
     }
 }
