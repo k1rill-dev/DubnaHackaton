@@ -51,7 +51,7 @@
             </div>
         </div>
         <ul id="list">
-            <!--{%for m in prod%}-->
+            {%for m in prod%}
             <li class="element">
                 <div class="card">
                     <div class="image"><img src="{{m.photo.url}}" width="150px" height="150px" style="border-radius: 10px;"></div>
@@ -61,16 +61,16 @@
                     <div class="card-btn">
                          <form action="{% url "cart:cart_add" m.id %}" method="post">
                             <center>
-                            <!--{{ cart_product_form }}-->
+                            {{ cart_product_form }}
                             </center>
-                            <!--{% csrf_token %}-->
+                            {% csrf_token %}
                             <button class="add" type="submit" value="Add to cart">
                             <a>Добавить</a></button>
                         </form>
                     </div>
                 </div>
             </li>
-            <!--{%endfor%}-->
+            {%endfor%}
         </ul>
     </div>
 </body>
