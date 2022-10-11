@@ -22,6 +22,7 @@ def list_restaurants(request):
 
 def menu(request, restik):
     prod = Menu.objects.filter(restaurant=restik)
+
     cart_product_form = CartAddProductForm()
     return render(request, 'webapp/menu.html', {"prod": prod, 'cart_product_form': cart_product_form})
 

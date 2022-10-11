@@ -6,24 +6,24 @@
     <title>Order</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="{%static 'js/app.js'%}"></script>
-    <link rel="stylesheet" href='{% static "webapp/css/style_order.css"%}'>
+    <script src="{%static 'webapp/js/app.js'%}"></script>
+    <link href="{% static 'webapp/css/style_order.css'%}" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100" rel="stylesheet">
 </head>
 <body>
-<form action="{%url 'order'%}" method="post">
+<form action="{%url 'order'%}" onsubmit="window.Telegram.WebApp.close;" method="post">
     {% csrf_token %}
     {{ form }}
-    <button class="solo" type="submit" onclick="window.Telegram.WebApp.close();">Оплачу сам</button>
+    <button class="solo" type="submit">Оплачу сам</button>
     <button class="team" type="submit">Оплачу командой</button>
 </form>
 <div class="payments">
     <div>
-        <img class="star" src="{% static "webapp/images/urxMmsFU46WsEdPTVaev-PhotoRoom.png" %}">
-        <button class="payment"><a>Оплата бонусами: {{bonus}}</a></button>
+        <img class="star" src="{%static 'webapp/images/favorite.png'%}">
+        <button class="payment"><a>Оплата бонусами</a></button>
     </div>
     <div>
-        <img class="cards" src="{% static "webapp/images/b94d627b0bd6d063269f36d439a49c5b.png" %}">
+        <img class="cards" src="{%static 'webapp/images/credit-card.png'%}">
         <button class="payment"><a>Способ оплаты</a></button>
     </div>
 </div>
@@ -32,7 +32,7 @@
         <input type="checkbox" checked="checked">
     </label>
 </div>
-<div class="ending" style="display:flex; flex-direction:row;">
+<div class="ending">
 </div>
 </body>
 </html>

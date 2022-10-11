@@ -16,11 +16,11 @@
     <div class="container">
         <div class="cart-head">
             <h1 class="title">Ваш заказ</h1>
-            <a onclick="javascript:history.back(); return false;" class="button light"><h5 class="refactor">Изменить</h5></a>
+            <a href="{% url "list_restaurants" %}" class="button light"><h5 class="refactor">Изменить</h5></a>
             {% for item in cart %}
                 {% with product=item.product %}
             <div class="card">
-                <img src="" class="img-cart">
+                <img src="{{product.photo.url}}" class="img-cart">
                 <h3 class="product-title">{{ product.title }}</h3>
                 <form action="{% url "cart:cart_plus" product.id %}" method="post">
                     {{cart_product_form}}
@@ -38,7 +38,7 @@
                 <h4 class="price">{{ item.price }}₽</h4>
                 <h4 class="count">Итого: {{ item.total_price }}₽</h4>
             </div>
-            <a class="remove" href='{% url "cart:cart_remove" product.id%}'><img src="{%static 'cart/images/krest.png'%}" width="20px" height="20px"></a>
+            <a class="remove" href='{% url "cart:cart_remove" product.id%}'><img src="{%static 'cart/images/remove.png'%}" width="20px" height="20px"></a>
             {% endwith %}
         {% endfor %}
         <div class="comment">
@@ -48,6 +48,7 @@
             </div>
         </div>
         </div>
+
     </div>
     <script src="https://telegram.org/js/telegram-web-app.js?1"></script>
 </body>

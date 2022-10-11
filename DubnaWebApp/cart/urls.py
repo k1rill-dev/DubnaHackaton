@@ -9,3 +9,4 @@ urlpatterns = [
     re_path(r'^plus/(?P<product_id>\d+)/$', views.cart_upd, name='cart_plus'),
     re_path(r'^minus/(?P<product_id>\d+)/$', views.cart_minus, name='cart_minus'),
 ]
+# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

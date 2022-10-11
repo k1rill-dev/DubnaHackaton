@@ -68,6 +68,7 @@ class Order(models.Model):
 class Restaurant(models.Model):
     title = models.CharField(max_length=255, blank=True, verbose_name='Название')
     rating = models.FloatField(blank=True, verbose_name='Рейтинг')
+    photo = models.ImageField(upload_to='restaurant_photos/%Y/%m/%d/', verbose_name='Фотографии', null=True, blank=True)
     address = models.CharField(max_length=255, blank=True, verbose_name='Адрес')
 
     def __str__(self):
