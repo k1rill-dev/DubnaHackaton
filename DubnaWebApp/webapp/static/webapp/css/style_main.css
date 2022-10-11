@@ -1,34 +1,69 @@
-@media screen and (max-width: 1280px) { div.contentblock {width: 1200px;} }
-@media screen and (max-width: 1140px) { div.contentblock {width: 1024px;} }
-@media screen and (max-width: 992px) { div. contentblock {width: 970px;} }
+body{
+    background: black;
+}
 
-.container{
-    position: absolute;
+.container {
+    position: relative;
     width: 392px;
-    height: max;
-    background-color: #EFEFEF;
-line-height: 120px; 
-border-radius: 10px;
-
-font-family: 'Montserrat';
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 40px;
-text-align: center;
-color: #000000;
+    height: 400px;
+    background: #000000;
 }
 
-.button-class{  
-    position: absolute;
-    height: 130px;
-    width: 300px;  
+
+.hello-text {
+    font-family: 'Jura', sans-serif;
+    font-size: 25px;
+    color: #FFFFFF;
+    line-height: 1.8;
+}
+.header {
+    background-color: #000000;
+    padding-top: 10px;
+}
+.hello-btn {
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    width: 200px;
+    height: 50px;
+    background-color: #000000;
+    color: #FFFFFF;
+    border: 3px solid #0048ff;
+    border-radius: 10px;
+    margin: 0 auto;
+    top: 50px;
+}
+
+.hello-btn:hover {
+  background-color: #008CBA;
+  color: #FFFFFF;
+}
+
+.footer {
+    font-family: 'Jura', sans-serif;
+    color: #FFFFFF;
+    padding-top: 150px;
     text-align: center;
-    left: 40px;
-top:375px;
+}
+.js-adaptive .body{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin: 0;
 }
 
-.text{
-    position: absolute;
-    top:100px;
+@media only screen and (min-width: 1px) and (max-width:392px) {
+    .container {
+        width: 392px;
+    }
+}
+
+@media only screen and (min-width: 1px) and (max-width:350px) {
+    .container {
+        width: 200px;
+    }
+}
+a{
+    text-decoration: none;
+    color: gray;
 }

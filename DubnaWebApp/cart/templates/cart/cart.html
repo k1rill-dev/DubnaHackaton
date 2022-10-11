@@ -16,7 +16,7 @@
     <div class="container">
         <div class="cart-head">
             <h1 class="title">Ваш заказ</h1>
-            <a href="{% url "list_restaurants" %}" class="button light"><h5 class="refactor">Изменить</h5></a>
+            <a onclick="javascript:history.back(); return false;" class="button light"><h5 class="refactor">Изменить</h5></a>
             {% for item in cart %}
                 {% with product=item.product %}
             <div class="card">
@@ -47,9 +47,7 @@
                 <a href="{%url 'order'%}"><button class="btn"><span class="btn-text">Перейти к оформлению</span></button></a></a>
             </div>
         </div>
-
         </div>
-
     </div>
     <script src="https://telegram.org/js/telegram-web-app.js?1"></script>
 </body>

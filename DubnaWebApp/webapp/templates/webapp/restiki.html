@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="{%static 'js/app.js'%}"></script>
+    <script src="{%static 'webapp/js/app.js'%}"></script>
+    <script src="{%static 'webapp/js/script.js'%}"></script>
     <link rel="stylesheet" href="{% static "webapp/css/style_sec.css" %}">
+    <link rel="stylesheet" href="{% static "webapp/css/button_style.css"%}">
     <link rel="stylesheet" href="{% static "webapp/css/fonts.css"%}">
     <title>Food service</title>
 </head>
@@ -17,6 +19,9 @@
         <img src="{% static "webapp/images/green_star.png"%}" class="star1">
         </div>
         <div class="rest_img">
+            <div class="dws">
+                <a href="{%url "menu" r.pk%}"><div href="#" class="butt",  ></div></a>
+            </div>
             <h1 class="numbers">{{r.rating}}</h1>
                 <div class="flex layout">
                     <a href="{%url "menu" r.pk%}"><h2 class="rest_name">{{r.title}}</h2></a>
@@ -26,6 +31,5 @@
     </div>
     {%endfor%}
     <script scr="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="{%static "webapp/js/anim.js"%}">
 </body>
 </html>

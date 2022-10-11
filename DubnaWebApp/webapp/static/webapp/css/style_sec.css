@@ -1,109 +1,100 @@
 body {
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: #000000;
 }
 
 .container {
     position: relative;
     width: 392px;
     height: max;
-    background: #FFFFFF;
+    background: #000000;
 }
 
 .rest_img {
     position: absolute;
-width: 320px;
-height: 85px;
-left: 36px;
-top: 70px;
-
-background: #D9D9D9;
-border-radius: 10px;
+    width: 320px;
+    height: 90px;
+    left: 36px;
+    top: 70px;
+    background: #D9D9D9;
+    border-radius: 10px;
 }
 
 .rest_img1 {
     position: absolute;
-width: 320px;
-height: 85px;
-text-align: left;
-top: 175px;
+    width: 320px;
+    height: 85px;
+    text-align: left;
+    top: 175px;
 
-background: #D9D9D9;
-border-radius: 10px;
+    background: #D9D9D9;
+    border-radius: 10px;
 }
 
 .numbers {
     position: absolute;
-width: 23px;
-height: 18px;
-left: 25px;
-text-align: left;
-top: 115px;
+    width: 23px;
+    height: 18px;
+    left: 25px;
+    text-align: left;
+    top: 115px;
 
-font-family: 'Montserrat';
-font-style: normal;
-font-weight: 400;
-font-size: 15px;
-line-height: 18px;
-text-align: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
 
-color: #000000;
+    color: #FFFFFF;
 }
 
 .numbers1 {
     position: absolute;
-width: 23px;
-height: 18px;
-left: 25px;
-top: 296px;
-
-font-family: 'Montserrat';
-font-style: normal;
-font-weight: 400;
-font-size: 15px;
-line-height: 18px;
-text-align: center;
-
-color: #000000;
+    width: 23px;
+    height: 18px;
+    left: 25px;
+    top: 296px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    color: #FFFFFF;
 }
 
 .rest_name {
     position: absolute;
-width: auto;
-height: auto;
-left: 5px;
-top: 90px;
-
-font-family: 'Montserrat';
-font-style: normal;
-font-weight: 700;
-font-size: 15px;
-line-height: 18px;
-text-align: center;
-
-color: #000000;
-
-text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: auto;
+    height: auto;
+    left: 5px;
+    top: 90px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    color: #FFFFFF;
 }
-
+.rest_name:hover {
+    color: #0048ff;
+}
 .rest_name1 {
     position: absolute;
-width: 113px;
-height: 18px;
-text-align: left;
-top: 270px;
-
-font-family: 'Montserrat';
-font-style: normal;
-font-weight: 700;
-font-size: 15px;
-line-height: 18px;
-text-align: center;
-
-color: #000000;
-
-text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 113px;
+    height: 18px;
+    text-align: left;
+    top: 270px;
+    font-family: 'Jura', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    color: #FFFFFF;
 }
 
 .small_text {
@@ -113,13 +104,13 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     left: 180px;
     top: 105px;
 
-    font-family: 'Montserrat';
+    font-family: 'Jura', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 15px;
     text-align: left;
-    color: #000000;
+    color: #FFFFFF;
 }
 
 .small_text1 {
@@ -153,13 +144,12 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     position: relative;
     width: 20px;
     min-width: 20px;
-
     position: relative;
-width: 23px;
-height: 18px;
-left: 35px;
-text-align: left;
-top: 193px;
+    width: 23px;
+    height: 23px;
+    left: 35px;
+    text-align: left;
+    top: 193px;
 }
 
 .star2 {

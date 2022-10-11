@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_POST
 from webapp.models import Menu
@@ -15,7 +16,7 @@ def cart_add(request, product_id):
         cart.add(product=product,
                  quantity=cd['quantity'],
                  update_quantity=cd['update'])
-    return redirect('cart:cart_detail')
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 def cart_remove(request, product_id):

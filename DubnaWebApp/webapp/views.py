@@ -33,21 +33,28 @@ def order(request):
             cd = form.cleaned_data
             cart = Cart(request)
             a = [i for i in cart]
-            # print(cd['address'], cd['full_name'], cd['phone_number'])
             quantity = [i['quantity'] for i in a]
             price = [float(i['price']) for i in a]
             product = [str(i['product']) for i in a]
+            product_query = [i['product'] for i in a]
             total_price = [float(i['total_price']) for i in a]
-            # pprint.pprint(a)
             res_address = [i['product'].restaurant.address for i in a]
-            # print(cart.get_total_price())
+
+            p = Profile.objects.last()
+            bonus_count = 0
+            if cd['is_bonus'] and p.bonus > 0:
+                bonus_count = p.bonus
+                p.bonus -= bonus_count
+                p.save()
+
             Order.objects.create(order_list=product, count_list=quantity, price_list=price, address_from=res_address,
-                                 address_to=cd['address'], price=total_price, comments=cd['comments']
+                                 address_to=cd['address'], price=total_price, comments=cd['comments'],
+                                 restaurant=product_query[0].restaurant, owner=p, sale=bonus_count
                                  )
             return redirect('order')
     else:
         form = MakeOrder()
-    return render(request, 'webapp/order.html', {'form': form})
+    return render(request, 'webapp/order.html', {'form': form, 'bonus': Profile.objects.last().bonus})
 
 
 # def profile(request):
