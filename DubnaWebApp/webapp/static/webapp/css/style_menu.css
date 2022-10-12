@@ -49,11 +49,11 @@ a:hover {
     color: #0048ff;
 }
 .card {
-    position: relative;
+position: relative;
     margin-top: 50px;
-    margin-left: 35px;
+    margin-left: 66px;
     width: 210px;
-    height: 346px;
+    height: 366px;
     background-color: #4f4f4f;
     border-radius: 20px;
 }

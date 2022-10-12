@@ -36,7 +36,7 @@ class Stuff(models.Model):
                                    verbose_name='Ресторан')
 
     def __str__(self):
-        return f"{self.profile.full_name} работает в {self.restaurant.title}"
+        return f"{self.restaurant.title}"
 
     class Meta:
         verbose_name = "Сотрудник"
@@ -59,7 +59,7 @@ class Order(models.Model):
     restaurant = models.ForeignKey("Restaurant", on_delete=models.PROTECT, blank=True, null=True, verbose_name='Ресторан')
 
     def __str__(self):
-        return f"{self.order_list[:10]}; {self.owner.tg_id}"
+        return f"{self.order_list[:10]}"
     class Meta:
         verbose_name = "Заказ"
         verbose_name_plural = "Заказы"

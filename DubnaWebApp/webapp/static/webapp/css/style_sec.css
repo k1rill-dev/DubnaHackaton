@@ -99,11 +99,10 @@ body {
 
 .small_text {
     position: absolute;
-    width: 172px;
+    width: auto;
     height: 15px;
     left: 180px;
     top: 105px;
-
     font-family: 'Jura', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -175,4 +174,8 @@ padding-top:0px;
 .posts{
     margin-right:30px;
     position:relative;
+}
+.card {
+    position: relative;
+    margin-bottom: 142px;
 }

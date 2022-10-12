@@ -1,0 +1,67 @@
+:root {
+    --color-orange: #ffa728;
+    --color-red: #e66c6e;
+    --color-green: #a7d6bb;
+    --color-blue: #1c4961;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.filter {
+    display: flex;
+    justify-content: center;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+
+
+.button:last-child{
+    margin-right: 0;
+}
+
+/*/Проваливание текста внутрь/*/
+.button:active {
+    bottom: -1px;
+}
+
+.button {
+    position: relative;
+    width: 58px;
+    height: auto;
+    background: #1c1c1c;
+    border: 2px solid #0048ff;
+    border-radius: 5px;
+}
+
+.button a{
+    position: relative;
+    font-family: 'Jura', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 2px;
+    margin-left: 1px;
+    color: #FFFFFF;
+}
+
+.zavt {
+    background-color: var(--color-green);
+}
+
+.obed {
+    background-color: var(--color-red);
+}
+
+.yzin {
+    background-color: var(--color-blue);
+}
+
+.hide {
+    display: none;
+}

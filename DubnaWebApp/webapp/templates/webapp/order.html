@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100" rel="stylesheet">
 </head>
 <body>
-<form action="{%url 'order'%}" onsubmit="window.Telegram.WebApp.close;" method="post">
+<form action="{%url 'order'%}" method="post">
     {% csrf_token %}
     {{ form }}
     <button class="solo" type="submit">Оплачу сам</button>

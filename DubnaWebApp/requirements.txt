@@ -32,3 +32,4 @@ wheel==0.36.2
 gunicorn
 whitenoise
 dj-database-url
+Pillow

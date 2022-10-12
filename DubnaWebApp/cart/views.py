@@ -57,5 +57,6 @@ def cart_detail(request):
     cart = Cart(request)
     cart_product_form = CartUpdProductForm()
     comment_form = CommentForm()
+    # print([i for i in cart])
     return render(request, 'cart/cart.html',
                   {'cart': cart, 'cart_product_form': cart_product_form, 'comment_form': comment_form})

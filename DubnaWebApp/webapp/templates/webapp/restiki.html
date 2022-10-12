@@ -13,8 +13,9 @@
     <title>Food service</title>
 </head>
 <body style="display: flex; flex-direction: column">
-    {%for r in restiki%}
     <div class="container">
+        {%for r in restiki%}
+        <div class="card">
         <div class="item">
         <img src="{% static "webapp/images/green_star.png"%}" class="star1">
         </div>
@@ -29,8 +30,10 @@
                         <div class="small_text">{{r.address}}</div>
                 </div>
         </div>
+            </div>
+        {%endfor%}
     </div>
-    {%endfor%}
-    <script scr="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </body>
 </html>

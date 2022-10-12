@@ -7,6 +7,7 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="{%static 'webapp/js/app.js'%}"></script>
+    <link rel="stylesheet" href='{% static "webapp/css/filter.css"%}'>
     <link rel="stylesheet" href='{% static "webapp/css/style_menu.css"%}'>
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -44,16 +45,26 @@
             <input id="select" placeholder="Введите название блюда..." class="seacrh">
             <img class="search-btn" src="{%static 'webapp/images/search.png'%}">
             <div class="tape">
-                <a>Завтрак</a>
-                <a>Обед</a>
-                <a>Ужин</a>
-                <a>Напитки</a>
+                <button class="button button_type_zavt" data-filter="zavt"><a>Завтрак</a></button>
+                <button class="button button_type_obed" data-filter="obed"><a>Обед</a></button>
+                <button class="button button_type_yzin" data-filter="yzin"><a>Ужин</a></button>
+                <button class="button button_type_napitki" data-filter="napitki"><a>Напитки</a></button>
             </div>
         </div>
         <ul id="list">
             {%for m in prod%}
             <li class="element">
+                {%if m.category.title == 'Завтраки'%}
+                <div class="card zavt">
+                {%elif m.category.title == 'Обеды'%}
+                <div class="card obed">
+                {%elif m.category.title == 'Ужин'%}
+                <div class="card yzin">
+                {%elif m.category.title == 'Напитки'%}
+                <div class="card napitki">
+                {%else%}
                 <div class="card">
+                {%endif%}
                     <div class="image"><img src="{{m.photo.url}}" width="150px" height="150px" style="border-radius: 10px;"></div>
                     <div class="price"><p>{{m.price}}₽</p></div>
                     <div class="name"><p>{{m.title}}</p></div>
@@ -74,4 +85,5 @@
         </ul>
     </div>
 </body>
+<script src="{%static 'webapp/js/filter.js'%}"></script>
 </html>
