@@ -20,7 +20,9 @@
         <img src="{% static "webapp/images/green_star.png"%}" class="star1">
         </div>
         <div class="rest_img">
+            {%if r.photo%}
             <img src="{{r.photo.url}}" width="320px" height="90px" style="border-radius: 10px;">
+            {%endif%}
             <div class="dws">
                 <a href="{%url "menu" r.pk%}"><div href="#" class="butt",  ></div></a>
             </div>

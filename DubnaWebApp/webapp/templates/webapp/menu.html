@@ -34,7 +34,7 @@
                             Ваша корзина:
                             <a href="{% url "cart:cart_detail" %}">
                                 {{ total_items }} item{{ total_items|pluralize }},
-                                ${{ cart.get_total_price }}
+                                {{ cart.get_total_price }}₽
                             </a>
                         {% else %}
                             Корзина пуста.
@@ -65,7 +65,7 @@
                 {%else%}
                 <div class="card">
                 {%endif%}
-                    <div class="image"><img src="{{m.photo.url}}" width="150px" height="150px" style="border-radius: 10px;"></div>
+                    <div class="image">{%if m.photo%}<img src="{{m.photo.url}}" width="150px" height="150px" style="border-radius: 10px;">{%endif%}</div>
                     <div class="price"><p>{{m.price}}₽</p></div>
                     <div class="name"><p>{{m.title}}</p></div>
                     <div class="description"><p>{{m.description}}</p></div>

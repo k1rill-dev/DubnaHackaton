@@ -26,3 +26,6 @@ class MakeOrder(forms.ModelForm):
             'phone_number': forms.TextInput(attrs={'class': 'field'}),
             'comments': forms.Textarea(attrs={'class': 'form-control'})
         }
+
+class GetIdForm(forms.Form):
+    update = forms.BooleanField(required=False, initial=False, widget=forms.HiddenInput)

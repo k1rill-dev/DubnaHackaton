@@ -5,10 +5,11 @@ class Profile(models.Model):
     # user = models.OneToOneField(User, on_delete=models.CASCADE)
     full_name = models.CharField(max_length=255, blank=True, null=True, verbose_name='ФИО')
     tg_username = models.CharField(max_length=255, blank=True, null=True, verbose_name='Юзернейм TG')
-    tg_id = models.IntegerField(blank=True, null=True, default=0, verbose_name='Tg ID')
+    tg_id = models.BigIntegerField(blank=True, null=True, default=0, verbose_name='Tg ID')
     address = models.CharField(blank=True, max_length=255, null=True, verbose_name='Адрес')
     bonus = models.IntegerField(blank=True, null=True, default=150, verbose_name='Бонусы')
     phone_number = models.BigIntegerField(blank=True, null=True, verbose_name='Номер телефона')
+    ref_id = models.BigIntegerField(default=None, blank=True, null=True, verbose_name='Айди рефералки')
     is_stuff = models.BooleanField(default=False, blank=True, null=True, verbose_name='Является сотрудником')
 
     def __str__(self):
@@ -31,7 +32,7 @@ class Profile(models.Model):
 #     instance.profile.save()
 
 class Stuff(models.Model):
-    profile = models.IntegerField(blank=True, null=True, default=0, verbose_name='Tg ID')
+    profile = models.BigIntegerField(blank=True, null=True, default=0, verbose_name='Tg ID')
     restaurant = models.ForeignKey("Restaurant", on_delete=models.PROTECT, blank=True, null=True,
                                    verbose_name='Ресторан')
 
@@ -56,10 +57,12 @@ class Order(models.Model):
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE, blank=True, null=True, verbose_name='Покупатель')
     date_of_create = models.DateTimeField(auto_now_add=True, blank=True, null=True, verbose_name='Дата создания')
     sale = models.IntegerField(blank=True, null=True, default=0, verbose_name='Скидка')
-    restaurant = models.ForeignKey("Restaurant", on_delete=models.PROTECT, blank=True, null=True, verbose_name='Ресторан')
+    restaurant = models.ForeignKey("Restaurant", on_delete=models.PROTECT, blank=True, null=True,
+                                   verbose_name='Ресторан')
 
     def __str__(self):
         return f"{self.order_list[:10]}"
+
     class Meta:
         verbose_name = "Заказ"
         verbose_name_plural = "Заказы"

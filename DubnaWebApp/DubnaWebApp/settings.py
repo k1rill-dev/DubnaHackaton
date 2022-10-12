@@ -92,9 +92,9 @@ WSGI_APPLICATION = 'DubnaWebApp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd5n6nt2sh4lhdl',
-        'USER': 'etmlokgwbnykro',
-        'PASSWORD': 'c41c54ac5c89c73e23a3ee26e827115b04acbdf6322a5cefad144bab37ae1aef',
+        'NAME': 'd1bku3sv3h5gug',
+        'USER': 'mchdxzgiplfwal',
+        'PASSWORD': '62a4b84119b5d0420e513481504d6dde8fb1b7c1b7371f289453e1aa0696acf2',
         'HOST': 'ec2-52-4-87-74.compute-1.amazonaws.com',
         'PORT': 5432,
     }
