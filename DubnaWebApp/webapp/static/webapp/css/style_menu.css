@@ -26,9 +26,9 @@ body {
 
 }
 input {
-    position: relative;
+position: relative;
     font-family: 'Jura', sans-serif;
-    width: 295px;
+    width: 284px;
     height: 30px;
     color: #FFFFFF;
     top: -10px;
@@ -41,11 +41,11 @@ input::placeholder {
     opacity: 40%;
 }
 .search-btn {
-    position: relative;
+position: relative;
     width: 30px;
     height: 30px;
     padding-left: 0px;
-    margin-left: 25px;
+    margin-left: 15px;
 }
 a:hover {
     color: #0048ff;

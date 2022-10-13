@@ -13,6 +13,22 @@
 </head>
 <body>
 <div style="margin-right: 0px;">
+    <a class="refactor" href="javascript:history.back(); window.reload();"><img src="{%static 'webapp/images/back.png'%}" width="30px" height="30px"></a>
+    <img class="profile-btn" src="{%static 'webapp/images/cart.png'%}" width="30px" height="30px">
+    <div class="shop-count">
+        <div class="cart">
+            {% with total_items=cart|length %}
+                {% if cart|length > 0 %}
+                    <a href="{% url "cart:cart_detail" %}">
+                        {{ total_items }} шт.{{ total_items|pluralize }},
+                        {{ cart.get_total_price }}₽
+                    </a>
+                {% else %}
+                    Корзина пуста.
+                {% endif %}
+            {% endwith %}
+        </div>
+    </div>
     <form action="{%url 'order'%}" method="post">
         {% csrf_token %}
         {{ form }}

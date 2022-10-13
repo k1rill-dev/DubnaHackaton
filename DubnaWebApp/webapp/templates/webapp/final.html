@@ -1,0 +1,38 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='{% static "webapp/css/style_main.css"%}'>
+    <link rel="stylesheet" href='{% static "webapp/css/button_style0.css"%}'>
+    <script src="{%static 'webapp/js/send.js'%}"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100" rel="stylesheet">
+    <title>Ex Minus ut Food</title>
+</head>
+<body>
+<div class="header">
+        <div class="hello-text">
+            <center>Спасибо за заказ!<br>Мы доставим его как можно скорее.</center>
+        </div>
+        </div>
+        <div class="main">
+            <center>
+                <div class="dws">
+                    <div class="button" style="top: 27px;">
+                        <a href="javascript:Telegram.WebApp.close();">
+                        <b>Вернуться в бота</b>
+                        </a>
+                    </div>
+                </div>
+            </center>
+        </div>
+        <div class="footer" style="padding-top: 327px;">
+            <b>Ex Minus Ut Food 2022</b>
+        </div>
+</div>
+</div>
+</body>
+</html>

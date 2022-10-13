@@ -42,9 +42,6 @@ def order(request):
             print(TELEGRAM_ID)
         except Exception as e:
             print(e)
-        # print(type(json.loads(next(iter(request.POST.dict().keys())))))
-        p = Profile.objects.get(tg_id=TELEGRAM_ID)
-        # p = Profile.objects.last()
         if form.is_valid():
             cd = form.cleaned_data
             cart = Cart(request)
@@ -55,6 +52,11 @@ def order(request):
             product_query = [i['product'] for i in a]
             total_price = [float(i['total_price']) for i in a]
             res_address = [i['product'].restaurant.address for i in a]
+            print(cd['tg_id'])
+            if TELEGRAM_ID == 0:
+                p = Profile.objects.get(tg_id=cd['tg_id'])
+            else:
+                p = Profile.objects.get(tg_id=TELEGRAM_ID)
             bonus_count = 0
             if cd['is_bonus'] and p.bonus > 0:
                 bonus_count = p.bonus
@@ -64,10 +66,12 @@ def order(request):
                                  address_to=cd['address'], price=total_price, comments=cd['comments'],
                                  restaurant=product_query[0].restaurant, owner=p, sale=bonus_count
                                  )
-            return redirect('order')
+            print(p.full_name)
+            return redirect('final')
     else:
         form = MakeOrder()
     return render(request, 'webapp/order.html', {'form': form, 'bonus': Profile.objects.last().bonus})
-# def profile(request):
-#     Profile.objects.get()
-#     return render(request, 'webapp/profile.html')
+
+
+def final(request):
+    return render(request, 'webapp/final.html')

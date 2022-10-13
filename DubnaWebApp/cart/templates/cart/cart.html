@@ -51,7 +51,7 @@
             {% for item in cart %}
                 {% with product=item.product %}
             <div class="card">
-                {%if product.photo%}<img src="{{product.photo.url}}" class="img-cart">{%endif%}
+                <img src="{{product.photo.url}}" class="img-cart">
                 <h3 class="product-title">{{ product.title }}</h3>
                 <form action="{% url 'cart:cart_plus' product.id %}" method="post">
                     {{cart_product_form}}
