@@ -4,7 +4,7 @@ body {
     background-color: #000000;
 }
 .payments {
-margin-top:25px;
+    margin-top: -30px;
 }
 
 .field, .payment{
@@ -98,10 +98,10 @@ margin-top:25px;
 }
 
 .solo{
-    left: 15px;
-    top: 620px;
-    position: absolute;
-    width: 171px;
+left: -20px;
+    top: 195px;
+    position: relative;
+    width: 170px;
     height: 37px;
     background: #E28C0B;
     border-radius: 12px;
@@ -115,9 +115,9 @@ margin-top:25px;
 }
 
 .team{
-    left: 205px;
-    top: 620px;
-    position: absolute;
+left: 0px;
+    top: 195px;
+    position: relative;
     width: 171px;
     height: 37px;
     background: #3ED33B;
@@ -147,9 +147,27 @@ margin-top:25px;
     left: 0px;}
 .checkbox-control {
     position: relative;
-    top: 65px;
+    top: 19px;
     width: 20px;
     height: 20px;
     left: 342px;
     z-index: 9;
+}
+.js-adaptive .body{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin: 0;
+}
+
+@media only screen and (min-width: 1px) and (max-width:392px) {
+    .container {
+        width: 392px;
+    }
+}
+
+@media only screen and (min-width: 1px) and (max-width:350px) {
+    .container {
+        width: 200px;
+    }
 }

@@ -7,48 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="{%static 'webapp/js/app.js'%}"></script>
+    <script src="{% static '/js/adaptiv.js'%}"></script>
     <link href="{% static 'webapp/css/style_order.css'%}" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100" rel="stylesheet">
 </head>
 <body>
-<form action="{%url 'order'%}" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <button class="solo" type="submit">Оплачу сам</button>
-    <button class="team" type="submit">Оплачу командой</button>
-</form>
+<div style="margin-right: 0px;">
+    <form action="{%url 'order'%}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button class="solo" type="submit">Оплачу сам</button>
+        <button class="team" type="submit">Оплачу командой</button>
+    </form>
+</div>
 <div class="payments">
     <div>
         <img class="star" src="{%static 'webapp/images/favorite.png'%}">
         <button class="payment"><a>Оплата бонусами</a></button>
     </div>
-    <div>
-        <img class="cards" src="{%static 'webapp/images/credit-card.png'%}">
-        <button class="payment"><a>Способ оплаты</a></button>
-    </div>
 </div>
 <div class="checkbox">
     <label class="container">Сохранить информацию на будущее
         <input type="checkbox" checked="checked">
-        <div id="usercard">
-            <script>
-                let tg = window.Telegram.WebApp;
-                Telegram.WebApp.ready();
-                tg.expand();
-                tg.MainButton.textColor = '#FFFFFF';
-                tg.MainButton.color = '#2cab37';
-
-                let id = tg.initDataUnsafe.user.id
-                let usercard = document.getElementById('usercard');
-
-                let p = document.createElement('p');
-
-                p.innerText = '${tg.initDataUnsafe.first_name} ${tg.initDataUnsafe.last_name}'
-
-                usercard.appendChild(p);
-                alert(id);
-            </script>
-        </div>
     </label>
 </div>
 <div class="ending">

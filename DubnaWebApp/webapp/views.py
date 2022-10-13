@@ -11,39 +11,25 @@ from .forms import MakeOrder, GetIdForm
 
 TELEGRAM_ID = 0
 
+
 def index(request):
     return render(request, 'webapp/index.html')
 
 
-# def get_id(request):
-#     if request.method == 'POST':
-#         # a = request.POST.dict() #{'{"id":858897290,"name":"Vova Loh Ebany"}': ''}
-#         # for k in zip(a):
-#         #     print(k) #('{"id":858897290,"name":"Vova Loh Ebany"}',)
-#         # print(dir(a))
-#         data = ast.literal_eval(next(iter(request.POST.dict().keys())))  #dict_keys(['{"id":858897290,"name":"Vova Loh Ebany"}'])
-#         print(data['id'])
-#         # for i in request.POST:
-#         #     json_acceptable_string = i.replace("'", "\"")
-#         #     d = json.loads(json_acceptable_string)
-#         #     print(d)
-#         # print(Profile.objects.get(tg_id=d['id']).full_name)
-#
-#     return HttpResponse("даунич")
-
-#{'{"id":858897290,"name":"Vova Loh Ebany"}': ['']}
+# {'{"id":858897290,"name":"Vova Loh Ebany"}': ['']}
 @csrf_exempt
 def list_restaurants(request):
     restiki = Restaurant.objects.all()
     cart = Cart(request)
     cart.clear()
-    return render(request, 'webapp/restiki.html',{'restiki': restiki})
+    return render(request, 'webapp/restiki.html', {'restiki': restiki})
 
 
 def menu(request, restik):
     prod = Menu.objects.filter(restaurant=restik)
     cart_product_form = CartAddProductForm()
     return render(request, 'webapp/menu.html', {"prod": prod, 'cart_product_form': cart_product_form})
+
 
 # dict_keys(['{"id":858897290,"name":"Vova Loh Ebany"}'])
 def order(request):
@@ -53,6 +39,7 @@ def order(request):
         try:
             data = json.loads(next(iter(request.POST.dict().keys())))
             TELEGRAM_ID = data['id']
+            print(TELEGRAM_ID)
         except Exception as e:
             print(e)
         # print(type(json.loads(next(iter(request.POST.dict().keys())))))
@@ -81,7 +68,6 @@ def order(request):
     else:
         form = MakeOrder()
     return render(request, 'webapp/order.html', {'form': form, 'bonus': Profile.objects.last().bonus})
-
 # def profile(request):
 #     Profile.objects.get()
 #     return render(request, 'webapp/profile.html')

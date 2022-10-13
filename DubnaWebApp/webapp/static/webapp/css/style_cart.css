@@ -236,3 +236,21 @@ textarea::placeholder{
 
     color: #FFFFFF;
 }
+.js-adaptive .body{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin: 0;
+}
+
+@media only screen and (min-width: 1px) and (max-width:392px) {
+    .container {
+        width: 392px;
+    }
+}
+
+@media only screen and (min-width: 1px) and (max-width:350px) {
+    .container {
+        width: 200px;
+    }
+}

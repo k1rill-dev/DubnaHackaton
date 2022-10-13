@@ -13,7 +13,7 @@ class MakeOrder(forms.ModelForm):
                                    label='')
     comments = forms.CharField(
         widget=forms.Textarea(attrs={'class': 'form-control', 'placeholder': "Любые пожелания, детали и т.д."}),
-        label='')
+        label='', required=False)
 
     is_bonus = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'checkbox-control'}), label='', required=False)
 

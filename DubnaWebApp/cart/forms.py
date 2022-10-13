@@ -16,7 +16,7 @@ class CartUpdProductForm(forms.Form):
 class CommentForm(forms.Form):
     comments = forms.CharField(
         widget=forms.Textarea(attrs={'class': 'form-control', 'placeholder': "Любые пожелания, детали и т.д."}),
-        label='')
+        label='', required=False)
 
     class Meta:
         model = Order
